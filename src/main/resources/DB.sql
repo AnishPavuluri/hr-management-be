@@ -49,3 +49,7 @@ CREATE TABLE IF NOT EXISTS "hrapp"."expense_claim_detail"
 	"total" decimal,
 	"expense_claim_id" bigint REFERENCES "hrapp"."expense_claim"
 );
+--inserting data in to leave_type table
+INSERT INTO hrapp.leave_type(id, name)	VALUES (1, 'Sick Leave');
+INSERT INTO hrapp.leave_type(id, name)	VALUES (2, 'Maternity Leave');
+INSERT INTO hrapp.leave_type(id, name)	VALUES (3, 'Annual Leave');
