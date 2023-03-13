@@ -17,7 +17,8 @@ import java.util.List;
 public class ExpenseClaimDetail {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "expClaimDetailSeq", sequenceName = "expense_claim_detail_seq", schema = "hrapp", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "expClaimDetailSeq")
     private Long id;
     @Column(name = "date")
     private Date date;

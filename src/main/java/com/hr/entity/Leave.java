@@ -15,7 +15,8 @@ import java.util.Date;
 public class Leave {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "leaveSeq", sequenceName = "leave_seq", schema = "hrapp", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "leaveSeq")
     private Long id;
 
     @Column(name = "from_date")

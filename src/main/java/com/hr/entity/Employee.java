@@ -15,7 +15,8 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "empSeq", sequenceName = "employee_seq", schema = "hrapp", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "empSeq")
     private Long id;
     @Column(name = "name")
     private String name;

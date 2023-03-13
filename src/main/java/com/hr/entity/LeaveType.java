@@ -14,7 +14,8 @@ import javax.persistence.*;
 public class LeaveType {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @SequenceGenerator(name = "leaveTypeSeq", sequenceName = "leave_type_seq", schema = "hrapp", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "leaveTypeSeq")
     private Long id;
     @Column(name = "name")
     private String name;

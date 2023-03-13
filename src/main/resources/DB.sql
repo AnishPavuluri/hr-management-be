@@ -49,7 +49,47 @@ CREATE TABLE IF NOT EXISTS "hrapp"."expense_claim_detail"
 	"total" decimal,
 	"expense_claim_id" bigint REFERENCES "hrapp"."expense_claim"
 );
+
+--script to create sequence
+CREATE SEQUENCE hrapp.department_seq
+INCREMENT 1
+MINVALUE 1
+START 1;
+
+CREATE SEQUENCE hrapp.employee_seq
+INCREMENT 1
+MINVALUE 1
+START 1;
+
+CREATE SEQUENCE hrapp.expense_claim_seq
+INCREMENT 1
+MINVALUE 1
+START 1;
+
+CREATE SEQUENCE hrapp.expense_claim_detail_seq
+INCREMENT 1
+MINVALUE 1
+START 1;
+
+CREATE SEQUENCE hrapp.leave_seq
+INCREMENT 1
+MINVALUE 1
+START 1;
+
+CREATE SEQUENCE hrapp.leave_type_seq
+INCREMENT 1
+MINVALUE 1
+START 1;
+
+--inserting data in to department table
+INSERT INTO hrapp.department(id, name)	VALUES (nextval('hrapp.department_seq'), 'IT Application');
+INSERT INTO hrapp.department(id, name)	VALUES (nextval('hrapp.department_seq'), 'IT Database');
+INSERT INTO hrapp.department(id, name)	VALUES (nextval('hrapp.department_seq'), 'IT Security');
+INSERT INTO hrapp.department(id, name)	VALUES (nextval('hrapp.department_seq'), 'IT Unix');
+INSERT INTO hrapp.department(id, name)	VALUES (nextval('hrapp.department_seq'), 'IT Testing');
+INSERT INTO hrapp.department(id, name)	VALUES (nextval('hrapp.department_seq'), 'HR');
+
 --inserting data in to leave_type table
-INSERT INTO hrapp.leave_type(id, name)	VALUES (1, 'Sick Leave');
-INSERT INTO hrapp.leave_type(id, name)	VALUES (2, 'Maternity Leave');
-INSERT INTO hrapp.leave_type(id, name)	VALUES (3, 'Annual Leave');
+INSERT INTO hrapp.leave_type(id, name)	VALUES (nextval('hrapp.leave_type_seq'), 'Sick Leave');
+INSERT INTO hrapp.leave_type(id, name)	VALUES (nextval('hrapp.leave_type_seq'), 'Maternity Leave');
+INSERT INTO hrapp.leave_type(id, name)	VALUES (nextval('hrapp.leave_type_seq'), 'Annual Leave');
